@@ -23,40 +23,27 @@ For local development, you can configure and run both backend and frontend compo
 
 For the backend setup, follow these steps:
 
-1. Download OpenSearch 3.5.0 from [the downloads page](https://opensearch.org/downloads):
+1. Download and extract OpenSearch 3.5.0 from [the downloads page](https://opensearch.org/downloads):
 
     ```bash
     tar -xzf opensearch-3.5.0-linux-x64.tar.gz
     ```
 
-2. Build the required plugins:
-
-    ```bash
-    git clone https://github.com/opensearch-project/OpenSearch.git
-    cd OpenSearch/
-    ./gradlew :plugins:transport-reactor-netty4:assemble
-    ./gradlew :plugins:arrow-flight-rpc:assemble
-    ```
-
-3. Install the plugins:
+2. Download the `transport-reactor-netty4` and `arrow-flight-rpc` plugins for 3.5.0 and install them:
 
     ```bash
     cd opensearch-3.5.0/
-    ./bin/opensearch-plugin install file:///path/to/transport-reactor-netty4.zip
-    ./bin/opensearch-plugin install file:///path/to/arrow-flight-rpc.zip
-    ```
-
-4. Start OpenSearch:
-
-    ```bash
-    ./bin/opensearch
+    curl -O https://artifacts.opensearch.org/releases/plugins/transport-reactor-netty4/3.5.0/transport-reactor-netty4-3.5.0.zip
+    curl -O https://artifacts.opensearch.org/releases/plugins/arrow-flight-rpc/3.5.0/arrow-flight-rpc-3.5.0.zip
+    ./bin/opensearch-plugin install --batch file://$PWD/transport-reactor-netty4-3.5.0.zip
+    ./bin/opensearch-plugin install --batch file://$PWD/arrow-flight-rpc-3.5.0.zip
     ```
 
 #### Backend configuration
 
-For backend setup, follow these steps:
+Complete the following steps before you start OpenSearch for the first time.
 
-1. Configure OpenSearch by adding the following settings to your `opensearch.yml` file:
+1. Configure OpenSearch by adding the following settings to your `config/opensearch.yml` file. Use single quotes around the regular expressions. In YAML, a backslash such as `\.` inside double quotes is an invalid escape sequence and prevents OpenSearch from starting:
 
     ```yaml
     # Enable stream transport feature
@@ -71,21 +58,22 @@ For backend setup, follow these steps:
     plugins.ml_commons.stream_enabled: true
     plugins.ml_commons.ag_ui_enabled: true
     plugins.ml_commons.mcp_connector_enabled: true
-    plugins.ml_commons.trusted_connector_endpoints_regex: ["^https?://localhost.*", "^https?://127\.0\.0\.1.*", "^https://bedrock-runtime\..*\.amazonaws\.com/.*$"]
+    plugins.ml_commons.trusted_connector_endpoints_regex: ['^https?://localhost.*', '^https?://127\.0\.0\.1.*', '^https://bedrock-runtime\..*\.amazonaws\.com/.*$']
     ```
 
-2. Install the security demo configuration:
+2. Install the security demo configuration. Set `OPENSEARCH_JAVA_HOME` to a Java 21 installation. The installer script is not executable in the tarball, so run it with `bash`:
 
     ```bash
     # Set initial admin password
-    # Specify Java 21 environment
     # Install OpenSearch Security demo configuration (includes certificates and default security settings)
     OPENSEARCH_INITIAL_ADMIN_PASSWORD='<your_password>' \
-    OPENSEARCH_JAVA_HOME=$(/usr/libexec/java_home -v 21) \
-    ./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
+    OPENSEARCH_JAVA_HOME=<path_to_java_21> \
+    bash ./plugins/opensearch-security/tools/install_demo_configuration.sh -y -i -s
     ```
 
-3. Configure JVM options by adding the following configuration to your `jvm.options` file:
+    On macOS, you can use `$(/usr/libexec/java_home -v 21)` as the Java path.
+
+3. Configure JVM options by adding the following configuration to your `config/jvm.options` file:
 
     ```bash
     # Streaming setup for Arrow Flight RPC
@@ -95,7 +83,13 @@ For backend setup, follow these steps:
     -Dio.netty.tryReflectionSetAccessible=true
     ```
 
-4. Set up an OpenSearch MCP server for tool integration:
+4. Start OpenSearch:
+
+    ```bash
+    ./bin/opensearch
+    ```
+
+5. In a separate terminal, start an OpenSearch MCP server for tool integration:
 
     ```bash
     # Configure and start MCP server with your OpenSearch credentials
@@ -121,7 +115,7 @@ cd opensearch-dashboards-3.5.0
 
 #### Frontend configuration
 
-Configure OpenSearch Dashboards by adding the following settings to your `opensearch_dashboards.yml` file:
+Configure OpenSearch Dashboards by editing the `config/opensearch_dashboards.yml` file. The default file in the 3.5.0 distribution already contains `opensearch.hosts`, `opensearch.ssl.verificationMode`, `opensearch.username`, `opensearch.password`, `opensearch.requestHeadersWhitelist`, and several `opensearch_security.*` settings. Remove those existing entries before adding the following settings. Duplicate keys prevent OpenSearch Dashboards from starting:
 
 ```yaml
 # OpenSearch Connection
@@ -132,8 +126,7 @@ opensearch.password: '<your_password>'  # Replace with your password
 opensearch.requestHeadersWhitelist: [authorization, securitytenant]
 
 # Security Plugin Settings
-opensearch_security.multitenancy.enabled: true
-opensearch_security.multitenancy.tenants.preferred: [Private, Global]
+opensearch_security.multitenancy.enabled: false
 opensearch_security.cookie.secure: false
 
 # Dashboard Administration
@@ -174,18 +167,27 @@ uiSettings:
     'home:useNewHomePage': true
 ```
 
+The workspace feature doesn't work with security multi-tenancy. If tenancy stays on, creating a workspace in the default Private tenant fails with `strict_dynamic_mapping_exception ... dynamic introduction of [permissions]`. Turn tenancy off in the security plugin as well:
+
+```bash
+curl -XPUT -k -u 'admin:<your_password>' \
+  'https://localhost:9200/_plugins/_security/api/tenancy/config' \
+  -H 'Content-Type: application/json' \
+  -d '{"multitenancy_enabled": false, "private_tenant_enabled": false, "default_tenant": "Global"}'
+```
+
 ## Configuring chatbot features
 
 To set up chatbot features, follow these steps.
 
 ### Step 1: Create a model and connector
 
-Register a Claude 4.5 model with an Amazon Bedrock connector:
+Register a Claude model with an Amazon Bedrock connector. This guide uses Claude Sonnet 4.6. You can use any Claude model that is enabled for your account and supports the Amazon Bedrock Converse API. Older models may be rejected with a `ResourceNotFoundException` error if the model is marked as legacy:
 
 ```bash
 POST /_plugins/_ml/models/_register
 {
-    "name": "Claude 4.5",
+    "name": "Claude Sonnet 4.6",
     "function_name": "remote",
     "description": "claude model",
     "connector": {
@@ -195,7 +197,7 @@ POST /_plugins/_ml/models/_register
         "protocol": "aws_sigv4",
         "parameters": {
             "region": "us-west-2",
-            "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+            "model": "us.anthropic.claude-sonnet-4-6",
             "service_name": "bedrock",
             "disable_profile_file": true,
             "disable_ec2_metadata": true
@@ -203,7 +205,7 @@ POST /_plugins/_ml/models/_register
         "credential": {
             "access_key": "{% raw %}{{aws-access-key-id}}{% endraw %}",
             "secret_key": "{% raw %}{{aws-secret-access-key}}{% endraw %}",
-            "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"  # Optional
+            "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"
         },
         "actions": [
             {
@@ -217,7 +219,7 @@ POST /_plugins/_ml/models/_register
 }
 ```
 
-Note the `model_id` in the response; you'll use it in the following steps.
+Note the `model_id` in the response; you'll use it in the following steps. The `session_token` field is required only for temporary credentials. Remove it if you use long-term access keys.
 
 ### Step 2: Register an MCP connector
 
@@ -277,7 +279,9 @@ POST /_plugins/_ml/agents/_register
 }
 ```
 
-Next, edit the `opensearch_dashboards.yml` file and change the value of `chat.mlCommonsAgentId` to your newly registered agent ID.
+Next, edit the `opensearch_dashboards.yml` file and change the value of `chat.mlCommonsAgentId` to the ID of the AG-UI agent you just registered. Then restart OpenSearch Dashboards. Don't use the plan-execute-reflect agent that you create later for investigations. The chat panel sends AG-UI requests, which that agent can't handle. When this happens, the chat panel shows no reply and no error.
+
+Starting with OpenSearch 3.9, you can choose the ID yourself by adding `"agent_id"` to the register agent request body, for example `"agent_id": "ag-ui-chat-agent"`. Connectors, models, model groups, and memory containers accept custom IDs as well. With fixed IDs, you can write `opensearch_dashboards.yml` before you register anything. You also don't need to copy IDs between steps.
 
 ## Configuring investigation features
 
@@ -310,19 +314,19 @@ Create a connector for investigation features:
 ```bash
 POST _plugins/_ml/connectors/_create
 {
-    "name": "Amazon Bedrock Claude 4.5-sonnet connector",
+    "name": "Amazon Bedrock Claude Sonnet 4.6 connector",
     "description": "Connector to Amazon Bedrock service for the Claude model",
     "version": 1,
     "protocol": "aws_sigv4",
     "parameters": {
         "region": "us-west-2",
         "service_name": "bedrock",
-        "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+        "model": "us.anthropic.claude-sonnet-4-6"
     },
     "credential": {
         "access_key": "{% raw %}{{aws-access-key-id}}{% endraw %}",
         "secret_key": "{% raw %}{{aws-secret-access-key}}{% endraw %}",
-        "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"  # Optional
+        "session_token": "{% raw %}{{aws-session-token}}{% endraw %}"
     },
     "actions": [
         {
@@ -347,7 +351,7 @@ Register a model for investigation features:
 ```bash
 POST _plugins/_ml/models/_register
 {
-    "name": "Bedrock Claude 4.5 Sonnet",
+    "name": "Bedrock Claude Sonnet 4.6",
     "function_name": "remote",
     "description": "Bedrock Claude model",
     "connector_id": "{% raw %}{{connector_id}}{% endraw %}"
@@ -475,6 +479,8 @@ curl -k --cert opensearch-3.5.0/config/kirk.pem --key opensearch-3.5.0/config/ki
 ## Using OpenSearch intelligent assistant features
 
 After completing the configuration, you'll have access to OpenSearch's intelligent assistant capabilities through multiple interfaces. The setup provides the following key components that work together to deliver comprehensive AI-powered functionality.
+
+To try these features on a new cluster, install the sample web logs. On the OpenSearch Dashboards home page, select **Sample datasets** and add **Sample web logs**. The examples in this section use the `opensearch_dashboards_sample_data_logs` index. For instance, ask the chatbot "Which hosts return the most HTTP 503 errors over the last 7 days?", and then use `/investigate` to find out why.
 
 ### Investigations
 
