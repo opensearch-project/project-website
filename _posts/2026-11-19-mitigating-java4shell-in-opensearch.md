@@ -17,7 +17,7 @@ meta_description: "Guidance for identifying and mitigating CVE-2026-114938 in se
 excerpt: "This post explains how self-managed OpenSearch operators can identify deployments affected by CVE-2026-114938, apply the vendor-provided JVM mitigation, and prepare to upgrade when an OpenSearch release with the fixed JDK is available."
 ---
 
-OpenSearch runs on Java and may be affected by **CVE-2026-114938**, also known as *java4shell*, a vulnerability in OpenJDK 17 and later. According to [Eclipse Temurin's public guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell), it can allow unauthenticated remote code execution on affected x64 systems when the CPU supports the AVX-512 VBMI instruction set.
+OpenSearch runs on Java and may be affected by **CVE-2026-114938**, also known as *java4shell*, a vulnerability in OpenJDK 17 and later. According to [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell), it can allow unauthenticated remote code execution on affected x64 systems when the CPU supports the AVX-512 VBMI instruction set.
 
 This post describes how to temporarily mitigate the vulnerability in self-managed OpenSearch deployments. The preferred long-term remediation is to upgrade to an OpenSearch release that includes a fixed JDK once it becomes available and has been validated in your environment.
 
@@ -199,4 +199,4 @@ Before you upgrade, complete the following steps:
 
 ## Verify advisory status before applying changes
 
-This post is based on the public Eclipse Temurin advisory. The affected platform conditions, fixed JDK versions, and OpenSearch patch release availability can change as vendors complete their release processes. Check the [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell) and [OpenSearch JDK Update](https://github.com/opensearch-project/OpenSearch/issues/23666) immediately before making production changes.
+This post is based on the Eclipse Temurin guidance. The affected platform conditions, fixed JDK versions, and OpenSearch patch release availability can change as vendors complete their release processes. Check the [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell) and [OpenSearch JDK Update](https://github.com/opensearch-project/OpenSearch/issues/23666) immediately before making production changes.
