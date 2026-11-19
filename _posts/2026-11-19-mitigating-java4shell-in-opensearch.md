@@ -12,7 +12,7 @@ tags:
   - java
   - operations
   - cve
-meta_keywords: OpenSearch, Java, JDK, Eclipse Temurin, CVE-2026-114938, java4shell, mitigation
+meta_keywords: OpenSearch, Java, JDK, Adoptium/Eclipse Temurin, CVE-2026-114938, java4shell, mitigation
 meta_description: "Guidance for identifying and mitigating CVE-2026-114938 in self-managed OpenSearch deployments until a patched OpenSearch release is available."
 excerpt: "This post explains how self-managed OpenSearch operators can identify deployments affected by CVE-2026-114938, apply the vendor-provided JVM mitigation, and prepare to upgrade when an OpenSearch release with the fixed JDK is available."
 ---
@@ -199,4 +199,4 @@ Before upgrading:
 
 ## Keep this guidance current
 
-This post is based on the public Eclipse Temurin advisory. The affected platform conditions, fixed JDK versions, and OpenSearch patch-release availability can change as vendors complete their release processes. Check the [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell) and [OpenSearch release tracking](https://github.com/opensearch-project/OpenSearch/issues/23666) immediately before making production changes.
+This post is based on the public Eclipse Temurin advisory. The affected platform conditions, fixed JDK versions, and OpenSearch patch-release availability can change as vendors complete their release processes. Check the [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell) and [OpenSearch JDK Update](https://github.com/opensearch-project/OpenSearch/issues/23666) immediately before making production changes.
