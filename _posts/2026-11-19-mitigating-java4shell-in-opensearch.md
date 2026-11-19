@@ -17,9 +17,11 @@ meta_description: "Guidance for identifying and mitigating CVE-2026-114938 in se
 excerpt: "This post explains how self-managed OpenSearch operators can identify deployments affected by CVE-2026-114938, apply the vendor-provided JVM mitigation, and prepare to upgrade when an OpenSearch release with the fixed JDK is available."
 ---
 
-OpenSearch runs on Java and may be affected by **CVE-2026-114938**, also known as *java4shell*, a vulnerability in OpenJDK 17 and later. According to [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell), it can allow unauthenticated remote code execution on affected x64 systems when the CPU supports the AVX-512 VBMI instruction set.
+OpenSearch runs on Java and may be affected by **CVE-2026-114938**, also known as *java4shell*, a vulnerability in OpenJDK 17 and later. According to [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell), the vulnerability can allow unauthenticated remote code execution on affected x64 systems when the CPU supports the AVX-512 VBMI instruction set.
 
-This post describes how to temporarily mitigate the vulnerability in self-managed OpenSearch deployments. The preferred long-term remediation is to upgrade to an OpenSearch release that includes a fixed JDK once it becomes available and has been validated in your environment.
+OpenSearch 3.10 and 2.19 bundle JDK versions affected by this vulnerability. Patched releases (3.10.1 and 2.19.8) are planned. Check the [OpenSearch JDK tracking issue](https://github.com/opensearch-project/OpenSearch/issues/23666) for the latest release status.
+
+Until a patched release is available and validated in your environment, this post describes a temporary mitigation for self-managed OpenSearch deployments. **The preferred long-term remediation is to upgrade to an OpenSearch release that includes a fixed JDK.**
 
 Before applying this change in production, follow your organization's normal change management procedures and apply it to one node at a time. In particular, do not restart all cluster-manager-eligible nodes simultaneously.
 
@@ -199,4 +201,4 @@ Before you upgrade, complete the following steps:
 
 ## Verify advisory status before applying changes
 
-This post is based on the Eclipse Temurin guidance. The affected platform conditions, fixed JDK versions, and OpenSearch patch release availability can change as vendors complete their release processes. Check the [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell) and [OpenSearch JDK Update](https://github.com/opensearch-project/OpenSearch/issues/23666) immediately before making production changes.
+This post is based on the Eclipse Temurin guidance. The affected platform conditions, fixed JDK versions, and OpenSearch patch release availability can change as vendors complete their release processes. Check the [Eclipse Temurin guidance](https://adoptium.net/news/2026/11/temurin-november-2026-cspu-java4shell) and [OpenSearch JDK update](https://github.com/opensearch-project/OpenSearch/issues/23666) immediately before making production changes.
