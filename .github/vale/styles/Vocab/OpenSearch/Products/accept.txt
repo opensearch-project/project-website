@@ -37,8 +37,10 @@ Docker
 Docker Compose
 Dockerfile
 DoS
+Eclipse Temurin
 Elasticsearch
 ElastiFlow
+Temurin
 Eliatra
 Faiss
 Filebeat
