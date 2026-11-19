@@ -126,6 +126,28 @@ docker compose exec opensearch-node1 sh -c \
 
 For `docker run` deployments, append the same option to the existing `OPENSEARCH_JAVA_OPTS` environment value. Do not add public port mappings or disable OpenSearch security as part of this mitigation.
 
+### OpenSearch Kubernetes Operator
+
+For clusters managed by the [OpenSearch Kubernetes Operator](https://github.com/opensearch-project/opensearch-k8s-operator), add the JVM option to every existing OpenSearch node pool. The `jvm` field is the Operator-supported path for additional JVM options; do not put this value in `general.additionalConfig`, which configures `opensearch.yml` rather than the JVM.
+
+```yaml
+spec:
+  nodePools:
+    - component: nodes
+      jvm: "-XX:-UseBASE64Intrinsics"
+```
+
+Treat this as a patch to an existing cluster resource. Preserve the node pool's existing fields and apply the setting to each node pool that runs OpenSearch. The Operator combines `nodePools[].jvm` with its calculated heap settings when it creates `OPENSEARCH_JAVA_OPTS`, so the mitigation option does not replace Operator-managed heap configuration.
+
+After applying the resource change, follow the Operator's rolling-restart procedure for the cluster. Verify each replacement pod's Java command line before proceeding to the next node:
+
+```bash
+kubectl exec -n <namespace> <opensearch-pod> -- sh -c \
+  'tr "\000" "\n" </proc/1/cmdline | grep -Fx -- "-XX:-UseBASE64Intrinsics"'
+```
+
+Do not use this change to modify Kubernetes Services, Ingress, `hostNetwork`, authentication, or Security-plugin configuration.
+
 ### Linux archive, RPM, and Debian installations
 
 For a persistent setting, add a separate file under `jvm.options.d` instead of modifying the packaged `jvm.options` file. This keeps the mitigation distinct from vendor-managed configuration and reduces the chance that it is overwritten during an upgrade.
