@@ -181,6 +181,7 @@ Wazuh
 Weblink
 Winlogbeat
 WorldTech
+Xeon
 Xplore
 Zipkin
 Zstandard
