@@ -37,7 +37,15 @@ OpenJDK 8 and 11 are not affected according to the vendor guidance. ARM systems 
 
 ### Verify the JDK version used by OpenSearch
 
-OpenSearch uses its bundled JDK by default. However, if `OPENSEARCH_JAVA_HOME` is set, it uses the JDK specified by that variable instead. Verify which JDK the OpenSearch process is configured to use; the system-wide `java` command may point to a different installation.
+If you have an account with the `cluster:monitor/nodes/info` permission, use the Nodes Info API to inspect the JDK used by every node without requiring shell or container access:
+
+```text
+GET /_nodes/jvm
+```
+
+The response includes each node's `jvm.version`, `jvm.vm_version`, and `jvm.vm_vendor`. Use it to confirm that every node is running the expected JDK after a mitigation or upgrade. The API also returns other static JVM details, including JVM arguments, so use an existing authorized administrative account and handle the response as operational information.
+
+OpenSearch uses its bundled JDK by default. However, if `OPENSEARCH_JAVA_HOME` is set, it uses the JDK specified by that variable instead. If the Nodes Info API is unavailable to you, verify which JDK the OpenSearch process is configured to use; the system-wide `java` command may point to a different installation.
 
 For a Linux archive installation using the bundled JDK, run the following command:
 
