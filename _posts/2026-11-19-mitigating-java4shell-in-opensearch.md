@@ -12,8 +12,8 @@ tags:
   - java
   - operations
   - cve
-meta_keywords: OpenSearch, Java, JDK, Adoptium/Eclipse Temurin, CVE-2026-114938, java4shell, mitigation
-meta_description: "Guidance for identifying and mitigating CVE-2026-114938 in self-managed OpenSearch deployments until a patched OpenSearch release is available."
+meta_keywords: self-managed OpenSearch, CVE-2026-114938, java4shell, OpenJDK, Eclipse Temurin, JDK vulnerability, remote code execution, JVM options, OpenSearch Kubernetes Operator, Docker, OpenSearch security
+meta_description: "Mitigate CVE-2026-114938 (java4shell) in self-managed OpenSearch on OpenJDK 17+ x64 hosts: add the -XX:-UseBASE64Intrinsics JVM option and upgrade when patched."
 excerpt: "This post explains how self-managed OpenSearch operators can identify deployments affected by CVE-2026-114938, apply the vendor-provided JVM mitigation, and prepare to upgrade when an OpenSearch release with the fixed JDK is available."
 ---
 
