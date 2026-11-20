@@ -64,6 +64,7 @@ k-NN
 [Kk]eystore
 kibibyte
 mebibyte
+[Ll]eaderboard
 [Ll]earnings
 [Ll]emmatization
 Levenshtein
