@@ -53,6 +53,8 @@ Functionbeat
 GeoJSON
 GitHub
 Gradle
+Gemini
+Gemini Enterprise Agent Platform
 Grafana
 Graylog
 Greynoise
@@ -66,6 +68,7 @@ Hugging Face
 Hyland
 Inferentia
 INFINI Labs
+Intel Scalable Vector Search
 initMAX
 Instaclustr
 IP2Geo
@@ -140,10 +143,12 @@ Peer Forwarder
 Performance Analyzer
 Piped Processing Language
 Powershell
+Prometheus
 Protobuf
 Pureinsights
 Python
 PyTorch
+Query Insights
 Querqy
 Query Workbench
 Quora
@@ -175,6 +180,9 @@ Tracetest
 Tribuo
 Uber
 Ubuntu
+Valkey
+Vega
+Vega-Lite
 Virtuozzo
 VisBuilder
 Wazuh
