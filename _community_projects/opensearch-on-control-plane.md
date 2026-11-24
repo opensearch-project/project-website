@@ -7,4 +7,5 @@ link: https://docs.controlplane.com/template-catalog/templates/opensearch?utm_so
 download_link: https://github.com/controlplane-com/templates/tree/main/opensearch
 license: Apache 2.0
 license_link: https://github.com/controlplane-com/templates/blob/main/LICENSE
+icon: /assets/media/community_projects/control-plane/control-plane.png
 ---
