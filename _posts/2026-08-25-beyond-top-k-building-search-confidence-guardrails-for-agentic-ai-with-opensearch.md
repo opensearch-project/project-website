@@ -32,7 +32,7 @@ In a single-shot search interface, a human reviews the results and applies judgm
 
 Several characteristics of raw retrieval scores make them unreliable as a trust signal for autonomous action:
 
-- **Scores are not normalized across methods.** BM25 scores are theoretically unbounded and in practice commonly fall in the 0 to 15 range, while L2 distance for vector search sits between 0 and 1. Comparing or combining them directly is comparing different scales.
+- **Scores are not normalized across methods.** BM25 scores are theoretically unbounded and in practice commonly fall in the 0 to 15 range, while vector search scores for the `l2` space type sit between 0 and 1. Comparing or combining them directly is comparing different scales.
 - **Scores are not comparable across queries.** A BM25 score of 8.5 on one query does not represent the same relevance as 8.5 on another, because scores depend on term frequencies and corpus statistics specific to each query.
 - **There is no "I don't know" signal.** For vector (k-NN) queries, Top-K returns K results by construction; for BM25, an irrelevant query returns either no hits or hits with very low scores. In neither case does the agent get an explicit signal that nothing is good enough, and a low-but-nonzero score is easy to mistake for a usable answer.
 
@@ -100,7 +100,7 @@ These are agent-facing conveniences for *querying* where they still hand back a 
 
 Each technique improves *ranking* or *query generation*, but none provides a trustworthy *trust signal*. Consider the query "how to rotate API keys in production," where the correct document ranks modestly on keywords but strongly on semantics, and a deprecated runbook ranks #1 on keyword overlap:
 
-- **Hybrid search** with min-max normalization rescales scores against the candidate set that was returned, so a high top score reports that a document is the best of that set, not that it's relevant. (With min-max, a document that matches every subquery clause maps to 1.0; one that matches only some clauses lands lower, for example around 0.5 for one of two clauses.) The deprecated runbook still scores highly when it's the strongest match in a set that contains no good answer, and the agent trusts it.
+- **Hybrid search** with min-max normalization rescales scores against the candidate set that was returned, so a high top score reports that a document is the best of that set, not that it's relevant. The deprecated runbook still scores highly when it's the strongest match in a set that contains no good answer, and the agent trusts it.
 - **RRF** discards score information entirely. It can surface the "best of irrelevant results" with no way to threshold on confidence, because rank fusion has no notion of absolute relevance.
 - **Reranking** orders all candidates, including a set that may be uniformly irrelevant. A cross-encoder logit is designed for ordering, not calibrated confidence, and the processor still returns a ranked list.
 - **Agentic search** plans and executes a query competently, but the QueryPlanningTool still returns whatever the generated query matches. It does not evaluate whether the match is good enough to act on.
@@ -179,7 +179,7 @@ A single static cutoff does not work across different kinds of requests. A confi
 
 Treat these values as a starting point, not fixed constants. Derive them empirically: assemble a judged set of queries for your corpus, sweep candidate thresholds, and pick the value per (query type, intent) cell that best separates queries that should act from those that should abstain (for example, by maximizing F1 or by holding false-acts under a target rate). Because a static cutoff rarely generalizes across query classes, revisit the table as your corpus and traffic mix shift, and consider deriving the boundary dynamically from the score distribution of each result set (such as a percentile of the returned scores, or the mean plus a multiple of the standard deviation) rather than hardcoding a single number. The evaluation methodology in [Evaluating agentic search in OpenSearch](https://opensearch.org/blog/evaluating-agentic-search-in-opensearch/) is a good basis for this tuning.
 
-In recent OpenSearch versions, `min_score` applies to hybrid queries **after** normalization, so you can enforce a floor at query time (verify the minimum version against the [hybrid query release notes](https://docs.opensearch.org/latest/query-dsl/compound/hybrid/) for your cluster, since this behavior was added after the initial hybrid query release):
+Starting with OpenSearch 3.5, `min_score` applies to [hybrid queries](https://docs.opensearch.org/latest/query-dsl/compound/hybrid/) **after** normalization and combination, so you can enforce a floor at query time:
 
 ```json
 POST /index/_search?search_pipeline=nlp-search-pipeline
@@ -196,7 +196,9 @@ POST /index/_search?search_pipeline=nlp-search-pipeline
 }
 ```
 
-One limitation to keep in mind: `min_score` is not always available on hybrid queries. If you add a `sort` clause to the hybrid query, for example to factor freshness or authority into ordering, sorting takes over from score-based ranking and `min_score` no longer applies. In that case, and on clusters where `min_score` is not yet applied to normalized hybrid scores, enforce the threshold in the agent orchestration layer instead:
+With the `[0.3, 0.7]` weights shown earlier, a document returned by only one subquery scores at most 0.3 or 0.7, so a floor of 0.75 keeps only documents that both subqueries returned. Set the floor with your pipeline weights in mind.
+
+One limitation to keep in mind: `min_score` works on hybrid queries only when results are sorted by `_score` or no sort is specified. If you add a `sort` clause on another field, for example to factor freshness or authority into ordering, the request returns an error. In versions earlier than 3.5, `min_score` filters raw subquery scores before normalization, so leave it out of hybrid requests. In both cases, enforce the threshold in the agent orchestration layer instead:
 
 ```python
 def get_threshold(query_type, intent):
