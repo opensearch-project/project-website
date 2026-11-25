@@ -1,9 +1,13 @@
 ---
 calendar_date: '2024-03-06'
-eventdate: 2024-03-06 10:00:00 -0600
+eventdate: 2024-03-04 10:00:00 +0100
 
 title: FOSS Backstage & FOSS Backstage Design
 online: false
+tz: Europe/Berlin
+location:
+  city: Berlin
+  country: Germany
 signup:
     url: https://24.foss-backstage.de/
     title: Visit the booth

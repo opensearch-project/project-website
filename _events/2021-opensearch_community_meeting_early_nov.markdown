@@ -3,6 +3,7 @@ calendar_date: '2021-11-01'
 eventdate: 2021-11-01 10:00:00 -0700
 title: OpenSearch Community Meeting - Early Nov
 online: true
+tz: America/Los_Angeles
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756926/
    title: Join on Meetup

@@ -3,6 +3,7 @@ calendar_date: '2022-08-16'
 eventdate: 2022-08-16 15:00:00 -0700
 title: OpenSearch Community Meeting - 2022-08-16
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/287311797
     title: Join on Meetup

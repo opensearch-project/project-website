@@ -3,6 +3,7 @@ calendar_date: '2021-08-24'
 eventdate: 2021-08-24 09:00:00 -0700
 title: OpenSearch Community Meeting - Late August
 online: true
+tz: America/Los_Angeles
 signup:
    url: https://www.meetup.com/OpenSearch/events/279756656/
    title: Join on Meetup

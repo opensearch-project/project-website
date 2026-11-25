@@ -1,9 +1,10 @@
 ---
 calendar_date: '2023-12-01'
-eventdate: 2023-12-01 09:00:00 -0700
+eventdate: 2023-12-01 09:00:00 -0800
 title: Development Backlog & Triage Meeting - ml-commons - 2023-12-01
 primary_title: Development Backlog & Triage Meeting - ml-commons - 2023-12-01
 online: true
+tz: America/Los_Angeles
 signup:
     url: https://www.meetup.com/opensearch/events/296823978
     title: Join on Meetup
