@@ -10,3 +10,11 @@ The best way to try out OpenSearch is to use [Docker Compose](https://docs.docke
 4. Have a nice coffee while everything is downloading and starting up
 5. Navigate to [http://localhost:5601/](http://localhost:5601) for OpenSearch Dashboards
 6. Login with the default username (`admin`) and password (`<custom-admin-password>`)
+
+**Looking for full observability out of the box?** The [Observability Stack](https://github.com/opensearch-project/observability-stack) is an OpenTelemetry-native platform that bundles OpenSearch, Dashboards, Data Prepper, and an OpenTelemetry Collector with preconfigured dashboards for traces, logs, metrics, and AI agent observability. To install the Observability Stack, run the following command:
+
+```
+curl -fsSL https://raw.githubusercontent.com/opensearch-project/observability-stack/main/install.sh | bash
+```
+
+For more information, see the [Observability Stack documentation](https://observability.opensearch.org/).
