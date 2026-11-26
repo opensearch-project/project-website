@@ -24,16 +24,17 @@ RAG is one of the most powerful applications of multimodal embeddings. By combin
 
 Before getting started, make sure you have the following:
 
-* An Amazon OpenSearch Service domain running version 2.17 or later. Audio embedding with the dedicated `audio_embedding` pre-processing function requires version 3.3 or later.
-* Access to the `amazon.nova-2-multimodal-embeddings-v1:0` model in Amazon Bedrock.
-* An AWS Identity and Access Management (IAM) role that grants Amazon OpenSearch Service permission to invoke the model. For setup instructions, see [Creating connectors for third-party ML platforms](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ml-external-connector.html).
-* An API key for the large language model (LLM) that will generate answers. This post uses OpenAI, but you can use any [supported LLM connector](https://docs.opensearch.org/latest/ml-commons-plugin/remote-models/connectors/).
+* An Amazon OpenSearch Service domain running version 2.19 or later, or a self-managed OpenSearch cluster running version 3.3 or later. On Amazon OpenSearch Service, the dedicated `audio_embedding` pre-processing function requires version 3.3 or later.
+* Access to the following models in Amazon Bedrock, in an AWS Region where both are available. This post uses US East (N. Virginia) (`us-east-1`):
+  * Amazon Nova Multimodal Embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`), which generates the embeddings.
+  * Anthropic Claude Haiku 4.5, called through the `us.anthropic.claude-haiku-4-5-20251001-v1:0` cross-Region inference profile. This large language model (LLM) generates the answers.
+* An AWS Identity and Access Management (IAM) role that grants Amazon OpenSearch Service permission to invoke both models. For setup instructions, see [Amazon OpenSearch Service ML connectors for AWS services](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ml-amazon-connector.html).
 
 If you're running self-managed OpenSearch, replace `roleArn` in the connector `credential` blocks with `access_key`, `secret_key`, and `session_token`. For details, see the [Nova Multimodal Embeddings connector blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/bedrock_connector_nova_multimodal_model_blueprint.md).
 
 ## Step 1: Register and deploy the Nova Multimodal Embeddings models
 
-The Nova model takes a different request format for each modality, so in this walkthrough you'll create one connector and one model for each modality: text, image, video, and audio. Each connector uses a modality-specific pre-processing function that maps OpenSearch inputs to the Nova request format, and they all share the same post-processing function.
+The Nova model takes a different request format for each modality, so in this walkthrough you'll create one connector and one model for each modality: text, image, video, and audio. Each connector uses a modality-specific pre-processing function that maps OpenSearch inputs to the Nova request format, and they all share the same post-processing function. Each connector also sets the `embeddingPurpose` parameter to `GENERIC_INDEX`, which Nova recommends for content that you index. At the end of this step, you'll register query models that use retrieval purposes instead.
 
 **Note**: Starting with OpenSearch 3.5, you can instead use a single unified connector with the `connector.pre_process.bedrock.nova.embedding` pre-processing function, which detects the input modality automatically. See the [connector blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/bedrock_connector_nova_multimodal_model_blueprint.md#option-a-unified-multimodal-connector-supported-in-opensearch-35-version) for details.
 
@@ -63,6 +64,7 @@ POST /_plugins/_ml/models/_register?deploy=true
       "dimensions": 1024,
       "normalize": true,
       "embeddingTypes": ["float"],
+      "embeddingPurpose": "GENERIC_INDEX",
       "truncationMode": "END"
     },
     "actions": [
@@ -74,7 +76,7 @@ POST /_plugins/_ml/models/_register?deploy=true
           "content-type": "application/json",
           "x-amz-content-sha256": "required"
         },
-        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"GENERIC_INDEX\", \"embeddingDimension\": ${parameters.dimensions}, \"text\": { \"truncationMode\": \"${parameters.truncationMode}\", \"value\": \"${parameters.inputText}\" } } }",
+        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"${parameters.embeddingPurpose}\", \"embeddingDimension\": ${parameters.dimensions}, \"text\": { \"truncationMode\": \"${parameters.truncationMode}\", \"value\": \"${parameters.inputText}\" } } }",
         "pre_process_function": "connector.pre_process.bedrock.nova.text_embedding",
         "post_process_function": "connector.post_process.bedrock.nova.embedding"
       }
@@ -140,6 +142,7 @@ POST /_plugins/_ml/models/_register?deploy=true
       "dimensions": 1024,
       "normalize": true,
       "embeddingTypes": ["float"],
+      "embeddingPurpose": "GENERIC_INDEX",
       "imageFormat": "jpeg",
       "detailLevel": "STANDARD_IMAGE"
     },
@@ -152,7 +155,7 @@ POST /_plugins/_ml/models/_register?deploy=true
           "content-type": "application/json",
           "x-amz-content-sha256": "required"
         },
-        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"GENERIC_INDEX\", \"embeddingDimension\": ${parameters.dimensions}, \"image\": { \"format\": \"${parameters.imageFormat}\", \"detailLevel\": \"${parameters.detailLevel}\", \"source\": { \"bytes\": \"${parameters.inputImage}\" } } } }",
+        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"${parameters.embeddingPurpose}\", \"embeddingDimension\": ${parameters.dimensions}, \"image\": { \"format\": \"${parameters.imageFormat}\", \"detailLevel\": \"${parameters.detailLevel}\", \"source\": { \"bytes\": \"${parameters.inputImage}\" } } } }",
         "pre_process_function": "connector.pre_process.bedrock.nova.image_embedding",
         "post_process_function": "connector.post_process.bedrock.nova.embedding"
       }
@@ -198,6 +201,7 @@ POST /_plugins/_ml/models/_register?deploy=true
       "dimensions": 1024,
       "normalize": true,
       "embeddingTypes": ["float"],
+      "embeddingPurpose": "GENERIC_INDEX",
       "videoFormat": "mp4",
       "embeddingMode": "AUDIO_VIDEO_COMBINED"
     },
@@ -210,7 +214,7 @@ POST /_plugins/_ml/models/_register?deploy=true
           "content-type": "application/json",
           "x-amz-content-sha256": "required"
         },
-        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"GENERIC_INDEX\", \"embeddingDimension\": ${parameters.dimensions}, \"video\": { \"format\": \"${parameters.videoFormat}\", \"embeddingMode\": \"${parameters.embeddingMode}\", \"source\": { \"bytes\": \"${parameters.inputVideo}\" } } } }",
+        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"${parameters.embeddingPurpose}\", \"embeddingDimension\": ${parameters.dimensions}, \"video\": { \"format\": \"${parameters.videoFormat}\", \"embeddingMode\": \"${parameters.embeddingMode}\", \"source\": { \"bytes\": \"${parameters.inputVideo}\" } } } }",
         "pre_process_function": "connector.pre_process.bedrock.nova.video_embedding",
         "post_process_function": "connector.post_process.bedrock.nova.embedding"
       }
@@ -220,6 +224,8 @@ POST /_plugins/_ml/models/_register?deploy=true
 ```
 
 The `AUDIO_VIDEO_COMBINED` embedding mode produces a single embedding that captures both the visual and audio tracks of the video.
+
+**Note**: The connectors in this post call the synchronous Nova API, which accepts up to 30 seconds of video or audio per request. For longer files, split them before ingestion or use the Nova asynchronous API, which supports segmentation.
 
 Test the model:
 
@@ -256,6 +262,7 @@ POST /_plugins/_ml/models/_register?deploy=true
       "dimensions": 1024,
       "normalize": true,
       "embeddingTypes": ["float"],
+      "embeddingPurpose": "GENERIC_INDEX",
       "audioFormat": "mp3"
     },
     "actions": [
@@ -267,7 +274,7 @@ POST /_plugins/_ml/models/_register?deploy=true
           "content-type": "application/json",
           "x-amz-content-sha256": "required"
         },
-        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"GENERIC_INDEX\", \"embeddingDimension\": ${parameters.dimensions}, \"audio\": { \"format\": \"${parameters.audioFormat}\", \"source\": { \"bytes\": \"${parameters.inputAudio}\" } } } }",
+        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"${parameters.embeddingPurpose}\", \"embeddingDimension\": ${parameters.dimensions}, \"audio\": { \"format\": \"${parameters.audioFormat}\", \"source\": { \"bytes\": \"${parameters.inputAudio}\" } } } }",
         "pre_process_function": "connector.pre_process.bedrock.nova.audio_embedding",
         "post_process_function": "connector.post_process.bedrock.nova.embedding"
       }
@@ -276,7 +283,7 @@ POST /_plugins/_ml/models/_register?deploy=true
 }
 ```
 
-**Note**: On Amazon OpenSearch Service versions earlier than 3.3, the `audio_embedding` pre-processing function isn't available. Instead, use `connector.pre_process.bedrock.nova.video_embedding` and use `inputVideo` instead of `inputAudio` in both the connector request body and the `_predict` request.
+**Note**: This workaround applies only to Amazon OpenSearch Service versions earlier than 3.3, which include the other Nova pre-processing functions but not `audio_embedding`. Self-managed OpenSearch versions that support Nova (3.3 and later) already include `audio_embedding`. On those Amazon OpenSearch Service versions, use `connector.pre_process.bedrock.nova.video_embedding` and use `inputVideo` instead of `inputAudio` in both the connector request body and the `_predict` request.
 
 Test the model:
 
@@ -289,41 +296,100 @@ POST /_plugins/_ml/models/<AUDIO_MODEL_ID>/_predict
 }
 ```
 
+### Query models
+
+Nova recommends generating embeddings for indexed content using the `GENERIC_INDEX` purpose and embeddings for queries using a retrieval purpose that matches the content you're searching. For example, use `IMAGE_RETRIEVAL` for a query that searches image embeddings. For all available purposes, see the [Nova embeddings request schema](https://docs.aws.amazon.com/nova/latest/userguide/embeddings-schema.html).
+
+A neural query always calls its model using the connector's configured parameters, so register a separate query model for each combination of query type and target vector field that you search. This post uses the following query models.
+
+| Model ID placeholder | Based on | `embeddingPurpose` | Searches |
+| :--- | :--- | :--- | :--- |
+| `<TEXT_QUERY_MODEL_ID>` | Text embedding model | `TEXT_RETRIEVAL` | `text_embedding` using a text query |
+| `<IMAGE_QUERY_MODEL_ID>` | Image embedding model | `IMAGE_RETRIEVAL` | `image_embedding` using an image query |
+| `<VIDEO_QUERY_MODEL_ID>` | Video embedding model | `VIDEO_RETRIEVAL` | `video_embedding` using a video query |
+| `<TEXT_TO_IMAGE_QUERY_MODEL_ID>` | Text embedding model | `IMAGE_RETRIEVAL` | `image_embedding` using a text query |
+
+To register each query model, send the same request as the embedding model it's based on, changing only the `name` and the `embeddingPurpose` parameter. For example, the following request registers the text-to-image query model:
+
+```json
+POST /_plugins/_ml/models/_register?deploy=true
+{
+  "name": "Amazon Nova Multimodal Embeddings - text-to-image query",
+  "function_name": "remote",
+  "description": "Nova text embedding model for queries that search image embeddings",
+  "connector": {
+    "name": "Amazon Bedrock connector: Nova text-to-image query embedding",
+    "description": "Connector to the Amazon Nova Multimodal Embeddings model for text queries that search images",
+    "version": 1,
+    "protocol": "aws_sigv4",
+    "credential": {
+      "roleArn": "<YOUR_IAM_ROLE_ARN>"
+    },
+    "parameters": {
+      "region": "<YOUR_AWS_REGION>",
+      "service_name": "bedrock",
+      "model": "amazon.nova-2-multimodal-embeddings-v1:0",
+      "input_docs_processed_step_size": 1,
+      "dimensions": 1024,
+      "normalize": true,
+      "embeddingTypes": ["float"],
+      "embeddingPurpose": "IMAGE_RETRIEVAL",
+      "truncationMode": "END"
+    },
+    "actions": [
+      {
+        "action_type": "predict",
+        "method": "POST",
+        "url": "https://bedrock-runtime.${parameters.region}.amazonaws.com/model/${parameters.model}/invoke",
+        "headers": {
+          "content-type": "application/json",
+          "x-amz-content-sha256": "required"
+        },
+        "request_body": "{ \"taskType\": \"SINGLE_EMBEDDING\", \"singleEmbeddingParams\": { \"embeddingPurpose\": \"${parameters.embeddingPurpose}\", \"embeddingDimension\": ${parameters.dimensions}, \"text\": { \"truncationMode\": \"${parameters.truncationMode}\", \"value\": \"${parameters.inputText}\" } } }",
+        "pre_process_function": "connector.pre_process.bedrock.nova.text_embedding",
+        "post_process_function": "connector.post_process.bedrock.nova.embedding"
+      }
+    ]
+  }
+}
+```
+
 ## Step 2: Configure multimodal RAG
 
 With the embedding models in place, you'll now register an LLM, create pipelines that generate embeddings at ingestion time and produce answers at search time, and then create an index that ties them together.
 
 ### Register an LLM
 
-Register an OpenAI chat model that will generate answers from the retrieved context:
+Register Anthropic Claude Haiku 4.5 on Amazon Bedrock to generate answers from the retrieved context. The connector calls the Amazon Bedrock [Converse API](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and uses the same IAM role as the Nova connectors:
 
 ```json
 POST /_plugins/_ml/models/_register?deploy=true
 {
-  "name": "OpenAI GPT-3.5 Turbo",
+  "name": "Anthropic Claude Haiku 4.5 on Amazon Bedrock",
   "function_name": "remote",
-  "description": "OpenAI chat model for RAG",
+  "description": "LLM for multimodal RAG",
   "connector": {
-    "name": "OpenAI chat connector",
-    "description": "Connector to the OpenAI chat completions API",
+    "name": "Amazon Bedrock Converse connector: Claude Haiku 4.5",
+    "description": "Connector to Anthropic Claude Haiku 4.5 through the Amazon Bedrock Converse API",
     "version": 1,
-    "protocol": "http",
-    "parameters": {
-      "endpoint": "api.openai.com",
-      "model": "gpt-3.5-turbo"
-    },
+    "protocol": "aws_sigv4",
     "credential": {
-      "openAI_key": "<YOUR_OPENAI_API_KEY>"
+      "roleArn": "<YOUR_IAM_ROLE_ARN>"
+    },
+    "parameters": {
+      "region": "<YOUR_AWS_REGION>",
+      "service_name": "bedrock",
+      "model": "us.anthropic.claude-haiku-4-5-20251001-v1:0"
     },
     "actions": [
       {
         "action_type": "predict",
         "method": "POST",
-        "url": "https://${parameters.endpoint}/v1/chat/completions",
+        "url": "https://bedrock-runtime.${parameters.region}.amazonaws.com/model/${parameters.model}/converse",
         "headers": {
-          "Authorization": "Bearer ${credential.openAI_key}"
+          "content-type": "application/json"
         },
-        "request_body": "{ \"model\": \"${parameters.model}\", \"messages\": ${parameters.messages} }"
+        "request_body": "{ \"messages\": ${parameters.messages} }"
       }
     ]
   }
@@ -344,8 +410,7 @@ PUT /_search/pipeline/rag_search_pipeline
         "description": "Multimodal RAG pipeline",
         "model_id": "<LLM_MODEL_ID>",
         "context_field_list": ["text"],
-        "system_prompt": "You are a helpful multimodal assistant.",
-        "user_instructions": "Answer the question based on the provided context, which is retrieved from text, image, video, and audio content."
+        "user_instructions": "You are a helpful multimodal assistant. Answer the question based on the provided context, which is retrieved from text, image, video, and audio content."
       }
     }
   ]
@@ -467,11 +532,11 @@ POST /_bulk
 { "text": "Audio product review of a cycling tank top", "audio": "SUQzBAAAAAAAI1RTU0UAAAAPAAAD..." }
 ```
 
-**Note**: Base64 strings for video and audio can be large. Keep bulk requests within your domain's maximum HTTP request payload size, and ingest large files in smaller batches.
+**Note**: Nova accepts up to 25 MB of inline content per request, measured after Base64 encoding, which increases file size by about 33%. Bulk requests that contain video and audio can also grow large, so keep them within your domain's maximum HTTP request payload size and ingest large files in smaller batches.
 
 ## Step 4: Run a multimodal RAG query
 
-Now you can search across all modalities and generate an answer in a single request. The following query combines several [neural queries](https://docs.opensearch.org/latest/query-dsl/specialized/neural/) in a `bool` query. Each neural query uses the model that matches its target vector field: the text query is embedded using the text model, the reference image using the image model, and the reference video using the video model. The `generative_qa_parameters` in the `ext` block pass the user's question to the RAG processor:
+Now you can search across all modalities and generate an answer in a single request. The following query combines several [neural queries](https://docs.opensearch.org/latest/query-dsl/specialized/neural/) in a `bool` query. Each neural query uses the query model registered for its query type and target vector field (see [Query models](#query-models)). The `generative_qa_parameters` in the `ext` block pass the user's question to the RAG processor:
 
 ```json
 GET /multimodal_rag_index/_search
@@ -483,7 +548,7 @@ GET /multimodal_rag_index/_search
           "neural": {
             "text_embedding": {
               "query_text": "Oval ring",
-              "model_id": "<TEXT_MODEL_ID>",
+              "model_id": "<TEXT_QUERY_MODEL_ID>",
               "k": 5
             }
           }
@@ -492,7 +557,7 @@ GET /multimodal_rag_index/_search
           "neural": {
             "image_embedding": {
               "query_text": "<BASE64_ENCODED_QUERY_IMAGE>",
-              "model_id": "<IMAGE_MODEL_ID>",
+              "model_id": "<IMAGE_QUERY_MODEL_ID>",
               "k": 5
             }
           }
@@ -501,7 +566,7 @@ GET /multimodal_rag_index/_search
           "neural": {
             "video_embedding": {
               "query_text": "<BASE64_ENCODED_QUERY_VIDEO>",
-              "model_id": "<VIDEO_MODEL_ID>",
+              "model_id": "<VIDEO_QUERY_MODEL_ID>",
               "k": 5
             }
           }
@@ -511,7 +576,7 @@ GET /multimodal_rag_index/_search
   },
   "ext": {
     "generative_qa_parameters": {
-      "llm_model": "gpt-3.5-turbo",
+      "llm_model": "bedrock-converse/us.anthropic.claude-haiku-4-5-20251001-v1:0",
       "llm_question": "What is an oval ring?",
       "context_size": 5,
       "message_size": 5,
@@ -524,9 +589,29 @@ GET /multimodal_rag_index/_search
 }
 ```
 
-The response contains the matching documents in `hits` and the LLM's answer in `ext.retrieval_augmented_generation.answer`.
+The `bedrock-converse/` prefix in `llm_model` tells the RAG processor to format the request for the Converse API. The response contains the matching documents in `hits` and the LLM's answer in `ext.retrieval_augmented_generation.answer`.
 
-Because all embeddings share one semantic space, you can also search across modalities. For example, you can run a text neural query using the text model against the `image_embedding` field to find images that match a text description.
+Because all embeddings share one semantic space, you can also search across modalities. The following query uses the text-to-image query model to find images that match a text description:
+
+```json
+GET /multimodal_rag_index/_search?search_pipeline=_none
+{
+  "query": {
+    "neural": {
+      "image_embedding": {
+        "query_text": "straw hat",
+        "model_id": "<TEXT_TO_IMAGE_QUERY_MODEL_ID>",
+        "k": 5
+      }
+    }
+  },
+  "_source": {
+    "excludes": ["text_embedding", "image_embedding", "video_embedding", "audio_embedding"]
+  }
+}
+```
+
+The `search_pipeline=_none` parameter skips the index's default RAG pipeline, so the query returns search results without generating an answer.
 
 ## Conclusion
 
